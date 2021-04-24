@@ -13,7 +13,7 @@ run_with_ngrok(app)
 #in database, your database's name, obviously 
 #in UID, your user in sql server, mine in sa for example
 #in PWD, you should write your password 
-conn = pyodbc.connect('DRIVER={SQL Server};SERVER=example;DATABASE=example;UID=example;PWD=example')
+conn = pyodbc.connect('DRIVER={SQL Server};SERVER=**;DATABASE=**;UID=**;PWD=**;')
 cursor = conn.cursor()
 
 def dict_factory(cursor , data):
@@ -33,13 +33,13 @@ class Inicio (Resource):
 class clientes(Resource):
     def get(self):
         
-        data = cursor.execute("SELECT * FROM (your table name)").fetchall()
+        data = cursor.execute("SELECT * FROM clientes").fetchall()
         return dict_factory(cursor,data)
         
 class Factura(Resource):
     def get(self):
         
-        data = cursor.execute("SELECT * FROM (your table name again) ").fetchall()
+        data = cursor.execute("SELECT * FROM factura ").fetchall()
         return dict_factory(cursor,data)
 
 
@@ -50,8 +50,8 @@ def page_not_found(e):
     return "<h1>404</h1><p>Something went wrong, check it out.</p>", 404
 
 
-api.add_resource(clientes,'/api/(your path)')
-api.add_resource(Factura,'/api/(your path)')
+api.add_resource(clientes,'/api/clientes')
+api.add_resource(Factura,'/api/facturas')
 api.add_resource(Inicio,'/')
 
 
