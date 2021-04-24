@@ -1,7 +1,7 @@
 # Flask simple RESTapi 
 
 This was an university homework I had to made.
-This is a simple api who reads data from sql server database adn return it as a jason format for then be consume by an android application in android studio
+This is a simple api who reads data from sql server database and return it as a json format and then is consumed by an android application in android studio
 
 ## Installation
 Install virtualenv with pip
